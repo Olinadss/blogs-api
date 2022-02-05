@@ -16,9 +16,7 @@ const findOneByEmail = (email) => {
 const login = async (findEmail) => {
   const userEmail = await User.findOne({ where: { email: findEmail } });
 
-  const { email } = userEmail.dataValues;
-
-  const token = await serviceLogin.createToken(email);
+  const token = await serviceLogin.createToken(userEmail.email);
 
   return token;
 };

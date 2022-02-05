@@ -7,7 +7,6 @@ const { JWT_SECRET } = process.env;
 
 const createToken = async (findEmail) => {
   const userEmail = await User.findOne({ where: { email: findEmail } });
-  // const userDisplayName = await User.findOne({ where: { displayName } });
 
   const jwtOptions = {
     algorithm: 'HS256',
