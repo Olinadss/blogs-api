@@ -1,4 +1,5 @@
 const { User } = require('../models');
+const serviceLogin = require('./serviceLogin');
 
 const create = async (displayName, email, password, image) => {
   const user = await User.create({ displayName, email, password, image });
@@ -12,7 +13,18 @@ const findOneByEmail = (email) => {
   return emailExist;
 };
 
+const login = async (findEmail) => {
+  const userEmail = await User.findOne({ where: { email: findEmail } });
+
+  const { email } = userEmail.dataValues;
+
+  const token = await serviceLogin.createToken(email);
+
+  return token;
+};
+
 module.exports = {
   create,
   findOneByEmail,
+  login,
 };
