@@ -21,9 +21,9 @@ const tableSchema = {
 };
   module.exports = {
     async up(queryInterface) {
-      await queryInterface.createTable('users', tableSchema);
+      await queryInterface.createTable('Users', tableSchema);
     },
     async down(queryInterface) {
-      await queryInterface.dropTable('users');
+      await queryInterface.dropTable('Users');
     },
   };
