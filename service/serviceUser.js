@@ -21,8 +21,24 @@ const login = async (findEmail) => {
   return token;
 };
 
+const getAllUser = async () => {
+  const user = await User.findAll();
+
+  return user;
+};
+
+const getByDisplayName = async (displayName) => {
+  const user = serviceLogin.findOne({ 
+    attributes: { exclude: ['password'] },
+    where: { displayName } });
+
+  return user.dataValues;
+};
+
 module.exports = {
   create,
   findOneByEmail,
   login,
+  getAllUser,
+  getByDisplayName,
 };

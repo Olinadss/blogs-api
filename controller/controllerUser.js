@@ -16,7 +16,14 @@ const login = async (req, res) => {
   res.status(200).json({ token });
 };
 
+const getAllUser = async (_req, res) => {
+  const user = await serviceUser.getAllUser();
+
+  res.status(200).json(user);
+};
+
 module.exports = {
   createUser,
   login,
+  getAllUser,
 };
