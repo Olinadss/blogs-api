@@ -64,10 +64,23 @@ const validationToken = (req, res, next) => {
   next();
 };
 
+const validationUserId = async (req, res, next) => {
+  const { id } = req.params;
+  
+  try {
+    await serviceUser.getUserById(id);
+    
+    return next();
+  } catch (e) {
+    return res.status(404).json({ message: 'User does not exist' });
+  }
+};
+
 module.exports = {
   validateDisplayName,
   validateEmail,
   validatePassword,
   validateEmailExist,
   validationToken,
+  validationUserId,
 };

@@ -4,7 +4,8 @@ const rescue = require('express-rescue');
 
 const userController = require('./controller/controllerUser');
 const { validateDisplayName, validateEmail,
-  validatePassword, validateEmailExist, validationToken } = require('./middleware/userMiddleware');
+  validatePassword, validateEmailExist, validationToken, 
+  validationUserId } = require('./middleware/userMiddleware');
 
 const { validationLogin, validationUser } = require('./middleware/loginMiddleware');
 
@@ -21,5 +22,8 @@ app.route('/user')
 
 app.route('/login')
     .post(validationLogin, validationUser, rescue(userController.login));
+
+app.route('/user/:id')
+  .get(validationUserId, validationToken, verifyToken, rescue(userController.getUserById));
 
 module.exports = app;
