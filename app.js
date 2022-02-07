@@ -33,6 +33,7 @@ app.route('/user/:id')
 
 app.route('/categories')
     .post(validationCategoryName, validationToken, verifyToken,
-      rescue(categoryController.createCategory));
+      rescue(categoryController.createCategory))
+    .get(validationToken, verifyToken, rescue(categoryController.getAllCategories));
 
 module.exports = app;
