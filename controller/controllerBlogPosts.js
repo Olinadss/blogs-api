@@ -19,6 +19,13 @@ const createPostAndCategories = async (req, res) => {
   res.status(201).json(blogPosts);
 };
 
+const getAllBlogPosts = async (_req, res) => {
+  const blogPosts = await serviceBlogPost.getAllBlogPosts();
+
+  res.status(200).json(blogPosts);
+};
+
 module.exports = {
   createPostAndCategories,
+  getAllBlogPosts,
 };

@@ -43,6 +43,7 @@ app.route('/categories')
 
 app.route('/post')
     .post(validateTitle, validateContent, validateCategoryIds,
-      validationToken, verifyToken, rescue(controllerBlogPosts.createPostAndCategories));
+      validationToken, verifyToken, rescue(controllerBlogPosts.createPostAndCategories))
+    .get(rescue(controllerBlogPosts.getAllBlogPosts));
 
 module.exports = app;
