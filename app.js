@@ -18,6 +18,9 @@ const { verifyToken } = require('./middleware/auth');
 
 const { validationCategoryName } = require('./middleware/categoryMiddleware');
 
+const { validateTitle, validateContent,
+  validateCategoryIds } = require('./middleware/blogPostCategoryMiddeware');
+
 const app = express();
 
 app.use(bodyParser.json());
@@ -39,6 +42,7 @@ app.route('/categories')
     .get(validationToken, verifyToken, rescue(categoryController.getAllCategories));
 
 app.route('/post')
-    .post(rescue(controllerBlogPosts.createPostAndCategories));
+    .post(validateTitle, validateContent, validateCategoryIds,
+      validationToken, verifyToken, rescue(controllerBlogPosts.createPostAndCategories));
 
 module.exports = app;

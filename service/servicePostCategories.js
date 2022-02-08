@@ -2,9 +2,11 @@ const { PostsCategories } = require('../models');
 
 const createPostCategories = async (postId, arrayCategories) => {
   const postCategories = arrayCategories
-    .map((itens) => PostsCategories.bulkCreate([{ postId, itens }]));
+    .map((itens) => ({ postId, categoryId: itens }));
 
-  return postCategories;
+const addPostCategories = await PostsCategories.bulkCreate(postCategories);
+
+  return addPostCategories;
 };
 
 module.exports = {

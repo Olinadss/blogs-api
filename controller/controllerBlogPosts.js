@@ -5,17 +5,12 @@ const servicePostCategories = require('../service/servicePostCategories');
 
 const { JWT_SECRET } = process.env;
 
-const jwtOptions = {
-  algorithm: 'HS256',
-  expiresIn: '5h',
-};
-
 const createPostAndCategories = async (req, res) => {
   const { title, content, categoryIds } = req.body;
 
-  const token = req.headers.authorization;
+  const payload = req.headers.authorization;
 
-  const { id } = jwt.verify(token, JWT_SECRET, jwtOptions);
+  const { id } = jwt.verify(payload, JWT_SECRET);
 
   const blogPosts = await serviceBlogPost.createBlogPost(id, title, content);
 
