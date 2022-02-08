@@ -6,6 +6,8 @@ const userController = require('./controller/controllerUser');
 
 const categoryController = require('./controller/controllerCatgories');
 
+const controllerBlogPosts = require('./controller/controllerBlogPosts');
+
 const { validateDisplayName, validateEmail,
   validatePassword, validateEmailExist, validationToken, 
   validationUserId } = require('./middleware/userMiddleware');
@@ -35,5 +37,8 @@ app.route('/categories')
     .post(validationCategoryName, validationToken, verifyToken,
       rescue(categoryController.createCategory))
     .get(validationToken, verifyToken, rescue(categoryController.getAllCategories));
+
+app.route('/post')
+    .post(rescue(controllerBlogPosts.createPostAndCategories));
 
 module.exports = app;

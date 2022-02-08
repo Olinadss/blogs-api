@@ -27,8 +27,6 @@ const getUserById = async (req, res) => {
   
   const user = await serviceUser.getUserById(id);
 
-  console.log('teste', user);
-
   res.status(200).json(user);
 };
 
