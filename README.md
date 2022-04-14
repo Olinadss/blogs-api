@@ -2,9 +2,10 @@
 
 # Projeto Blogs API!
 
-# Habilidades 
+# Habilidades
 
-Nesse projeto, você vai construir um back-end usando `ORM` com o pacote `sequelize` do `npm`, e será capaz de:
+Neste projeto eu desenvolvi uma API de CRUD para posts de blog (com o Sequelize). Começando pela API, eu construí alguns endpoints (seguindo os princípios do REST) que estão conectados ao meu banco de dados:
+
  - Criar e associar tabelas usando `models` do `sequelize`
  - Construir endpoints para consumir os models que criar 
  - Fazer um `CRUD` com o `ORM`
