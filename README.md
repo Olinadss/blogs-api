@@ -33,7 +33,7 @@ Neste projeto eu desenvolvi uma API de CRUD para posts de blog (com o Sequelize)
   MYSQL_USER=seu-usuario-mysql
   MYSQL_PASSWORD=sua-senha-mysql
   JWT_SECRET=qualquer-string-aleatoria
-  PORT=porta-para-iniciar-aplicação(padrão = 3000)
+  PORT=porta-para-iniciar-aplicação
 ```
 
 **Você irá precisar configurar as variáveis globais do MySQL.** Você pode usar esse [Conteúdo de variáveis de ambiente com NodeJS](https://blog.rocketseat.com.br/variaveis-ambiente-nodejs/) como referência.
