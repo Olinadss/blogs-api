@@ -28,7 +28,7 @@ Neste projeto eu desenvolvi uma API de CRUD para posts de blog (com o Sequelize)
 
 3. Crie, na raíz do projeto, um arquivo .env contendo as seguintes variáveis:
   
-  ```sh
+  ```js
   HOSTNAME=seu-host-mysql
   MYSQL_USER=seu-usuario-mysql
   MYSQL_PASSWORD=sua-senha-mysql
@@ -42,7 +42,7 @@ Neste projeto eu desenvolvi uma API de CRUD para posts de blog (com o Sequelize)
 
 `sd-014-b-project-blogs-api/config/config.js`
 
-```json
+```js
 module.exports = {
   development: {
     username: process.env.MYSQL_USER,
