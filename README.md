@@ -42,7 +42,7 @@ Neste projeto eu desenvolvi uma API de CRUD para posts de blog (com o Sequelize)
 
 `sd-014-b-project-blogs-api/config/config.js`
 
-```
+```json
 module.exports = {
   development: {
     username: process.env.MYSQL_USER,
