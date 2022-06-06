@@ -68,7 +68,7 @@ module.exports = {
 };
 ```
 
-##FEEDBACKS
+## FEEDBACKS
 
   -Caso queira dar alguma sugestão entre em contato comigo via linkedin: https://www.linkedin.com/in/danilodossantossouza/
 
